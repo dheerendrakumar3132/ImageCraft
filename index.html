@@ -9,12 +9,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap');
-        body { font-family: 'Outfit', sans-serif; background-color: #f8fafc; }
+        body { font-family: 'Outfit', sans-serif; background-color: #f8fafc; overflow-x: hidden; } /* Added overflow-x: hidden to fix mobile scroll */
         .gradient-text { background: linear-gradient(90deg, #4f46e5, #9333ea); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .tool-card { background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.3); }
         .feature-icon { transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
         .feature-card:hover .feature-icon { transform: scale(1.2) rotate(10deg); }
-        html { scroll-behavior: smooth; }
+        html { scroll-behavior: smooth; overflow-x: hidden; } /* Added overflow-x: hidden here too */
     </style>
 </head>
 <body class="text-slate-900">
@@ -34,7 +34,6 @@
                 <a href="#features" class="hover:text-indigo-600 transition">Features</a>
                 <a href="#testimonials" class="hover:text-indigo-600 transition">Reviews</a>
                 <a href="#faq" class="hover:text-indigo-600 transition">Security</a>
-                <a href="about us.html" class="hover:text-indigo-600 transition">About Us</a>
             </div>
             <button onclick="window.location.href='#tool'" class="bg-slate-900 text-white px-6 py-2.5 rounded-full text-sm font-bold hover:bg-indigo-600 transition shadow-lg">Try it Free <i class="fas fa-arrow-right text-[10px] ml-2"></i></button>
         </div>
@@ -295,26 +294,24 @@
                 <div>
                     <h5 class="font-black text-xs uppercase tracking-widest text-slate-400 mb-6">Tools</h5>
                     <ul class="space-y-3 font-bold text-slate-300 text-sm">
-                        <li><a href="#tool" class="hover:text-indigo-400 transition">Image Stitcher</a></li>
+                        <li><a href="index.html#tool" class="hover:text-indigo-400 transition">Image Stitcher</a></li>
                         <li><a href="#" class="hover:text-indigo-400 transition">Image Resizer</a></li>
-                        <li><a href="https://webimgtool.novaplexes.com" class="hover:text-indigo-400 transition">Image Converter</a></li>
+                        <li><a href="#" class="hover:text-indigo-400 transition">Image Converter</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h5 class="font-black text-xs uppercase tracking-widest text-slate-400 mb-6">Policy</h5>
+                    <h5 class="font-black text-xs uppercase tracking-widest text-slate-400 mb-6">Company</h5>
                     <ul class="space-y-3 font-bold text-slate-300 text-sm">
-                        <li><a href="privacy policy.html" class="hover:text-indigo-400 transition">Privacy Policy</a></li>
-                        <li><a href="terms of service.html" class="hover:text-indigo-400 transition">Terms of Service</a></li>
-                        <li><a href="cookie policy.html" class="hover:text-indigo-400 transition">Cookie Policy</a></li>
-                        <li><a href="disclaimer.html" class="hover:text-indigo-400 transition">Disclaimer</a></li>
+                        <li><a href="about-us.html" class="hover:text-indigo-400 transition">About Us</a></li>
+                        <li><a href="privacy-policy.html" class="hover:text-indigo-400 transition">Privacy Policy</a></li>
+                        <li><a href="terms-of-service.html" class="hover:text-indigo-400 transition">Terms of Use</a></li>
+                        <li><a href="#" class="hover:text-indigo-400 transition">Contact</a></li>
                     </ul>
                 </div>
+            </div>
         </div>
-    </div>
         <div class="mt-12 text-center text-slate-500 text-xs border-t border-slate-800 pt-8">
-            &copy; 2026 ImageCraft Pro. All rights reserved. Made for Creators. </p>
-            Designed & Developed by Dheerendra Patel</p>
-            <p>
+            &copy; 2026 ImageCraft Pro. All rights reserved. Made for Creators.
         </div>
     </footer>
 
