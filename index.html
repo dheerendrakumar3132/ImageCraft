@@ -2,38 +2,47 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>ImageCraft Pro | Advanced Online Image Stitcher & Merger</title>
     <meta name="description" content="Merge multiple images online with ImageCraft Pro. High-quality, private, and fast browser-based image stitching for all your needs.">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap');
-        body { 
-            font-family: 'Outfit', sans-serif; 
-            background-color: #f8fafc; 
+        
+        /* FIX: Prevents horizontal scrolling and shaking */
+        html, body { 
+            max-width: 100%; 
             overflow-x: hidden; 
-            width: 100%;
+            position: relative;
+            margin: 0;
+            padding: 0;
         }
+
+        body { font-family: 'Outfit', sans-serif; background-color: #f8fafc; }
         .gradient-text { background: linear-gradient(90deg, #4f46e5, #9333ea); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .tool-card { background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.3); }
         .feature-icon { transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
         .feature-card:hover .feature-icon { transform: scale(1.2) rotate(10deg); }
-        html { scroll-behavior: smooth; overflow-x: hidden; }
-        /* Fix for large text on mobile */
-        .break-word-custom { word-wrap: break-word; word-break: break-word; }
+        html { scroll-behavior: smooth; }
+
+        /* FIX: Scaling large text for mobile screens */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem !important; line-height: 1.1 !important; }
+            .tool-card { border-radius: 1.5rem !important; padding: 1.5rem !important; }
+        }
     </style>
 </head>
 <body class="text-slate-900">
 
-    <div class="bg-indigo-600 text-white text-[10px] md:text-[12px] py-2 text-center font-bold tracking-widest uppercase px-4">
-        🚀 NEW: VERTICAL STACKING MODE & HIGH-RES PNG EXPORT ENABLED
+    <div class="bg-indigo-600 text-white text-[12px] py-2 text-center font-bold tracking-widest uppercase px-4">
+        🚀 NEW: Vertical Stacking Mode & High-Res PNG Export Enabled
     </div>
 
     <nav class="sticky top-0 z-50 bg-white/70 backdrop-blur-md border-b border-slate-200">
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
             <div class="flex items-center gap-2">
-                <span class="text-2xl font-black tracking-tighter uppercase">IMAGE<span class="text-indigo-600">CRAFT</span><span class="text-xs ml-1 bg-slate-100 px-2 py-0.5 rounded text-slate-500">PRO</span></span>
+                <span class="text-2xl font-black tracking-tighter uppercase">Image<span class="text-indigo-600">Craft</span><span class="text-xs ml-1 bg-slate-100 px-2 py-0.5 rounded text-slate-500">PRO</span></span>
             </div>
             <div class="hidden md:flex gap-8 text-sm font-bold text-slate-600">
                 <a href="#tool" class="hover:text-indigo-600 transition">Tool</a>
@@ -41,42 +50,43 @@
                 <a href="#features" class="hover:text-indigo-600 transition">Features</a>
                 <a href="#testimonials" class="hover:text-indigo-600 transition">Reviews</a>
                 <a href="#faq" class="hover:text-indigo-600 transition">Security</a>
+                <a href="about us.html" class="hover:text-indigo-600 transition">About Us</a>
             </div>
-            <button onclick="window.location.href='#tool'" class="bg-slate-900 text-white px-6 py-2.5 rounded-full text-sm font-bold hover:bg-indigo-600 transition shadow-lg whitespace-nowrap">Try it Free <i class="fas fa-arrow-right text-[10px] ml-2"></i></button>
+            <button onclick="window.location.href='#tool'" class="bg-slate-900 text-white px-4 md:px-6 py-2.5 rounded-full text-xs md:text-sm font-bold hover:bg-indigo-600 transition shadow-lg whitespace-nowrap">Try it Free <i class="fas fa-arrow-right text-[10px] ml-2"></i></button>
         </div>
     </nav>
 
     <section class="pt-16 pb-10 px-6 bg-gradient-to-b from-indigo-50/50 to-transparent">
         <div class="max-w-4xl mx-auto text-center mb-12">
-            <h1 class="text-4xl md:text-6xl lg:text-8xl font-black mb-6 tracking-tight leading-none break-word-custom">
-                Stitch Images <br><span class="gradient-text">Like a Pro.</span>
+            <h1 class="text-6xl md:text-8xl font-black mb-6 tracking-tight leading-none">
+                Stitch Images <br><span class="gradient-text">Like a Professional.</span>
             </h1>
             <p class="text-lg text-slate-500 max-w-2xl mx-auto leading-relaxed">
                 The most advanced browser-based image merger. No file size limits, no server lag, and absolute privacy for your creative workflow.
             </p>
         </div>
 
-        <div id="tool" class="max-w-5xl mx-auto tool-card rounded-[2.5rem] shadow-2xl p-4 md:p-10 border border-white">
-            <div class="flex flex-col md:flex-row items-center justify-between gap-4 mb-8 bg-white shadow-inner p-3 rounded-2xl border border-slate-100">
+        <div id="tool" class="max-w-5xl mx-auto tool-card rounded-[2.5rem] shadow-2xl p-6 md:p-10 border border-white">
+            <div class="flex flex-wrap items-center justify-between gap-4 mb-8 bg-white shadow-inner p-3 rounded-2xl border border-slate-100">
                 <div class="flex gap-2 w-full md:w-auto">
-                    <button onclick="document.getElementById('multiInput').click()" class="flex-1 bg-indigo-600 hover:bg-indigo-700 text-white px-4 md:px-8 py-3.5 rounded-xl font-bold flex items-center justify-center gap-3 transition shadow-lg shadow-indigo-100">
+                    <button onclick="document.getElementById('multiInput').click()" class="flex-1 bg-indigo-600 hover:bg-indigo-700 text-white px-4 md:px-8 py-3.5 rounded-xl font-bold flex items-center justify-center gap-3 transition shadow-lg shadow-indigo-100 text-sm md:text-base">
                         <i class="fas fa-images"></i> Add Assets
                     </button>
                     <input type="file" id="multiInput" class="hidden" accept="image/*" multiple onchange="handleFiles(this.files)">
-                    <button onclick="clearAll()" class="bg-rose-50 text-rose-600 px-6 py-3.5 rounded-xl font-bold hover:bg-rose-100 transition">
+                    <button onclick="clearAll()" class="bg-rose-50 text-rose-600 px-4 md:px-6 py-3.5 rounded-xl font-bold hover:bg-rose-100 transition text-sm md:text-base">
                         Reset
                     </button>
                 </div>
                 
-                <div class="flex flex-col sm:flex-row gap-4 items-center w-full md:w-auto">
+                <div class="flex gap-4 items-center w-full md:w-auto justify-between md:justify-end">
                     <div class="h-10 w-px bg-slate-200 mx-2 hidden md:block"></div>
-                    <label class="text-xs font-bold text-slate-400 uppercase">Layout</label>
-                    <select id="mergeDirection" class="w-full sm:w-auto bg-slate-50 border-none rounded-xl px-4 py-3 font-bold text-slate-700 focus:ring-2 ring-indigo-500 cursor-pointer">
+                    <label class="text-xs font-bold text-slate-400 uppercase tracking-wider">Layout</label>
+                    <select id="mergeDirection" class="bg-slate-50 border-none rounded-xl px-4 py-3 font-bold text-slate-700 focus:ring-2 ring-indigo-500 cursor-pointer text-sm">
                         <option value="horizontal">↔ Horizontal</option>
                         <option value="vertical">↕ Vertical</option>
                     </select>
-                    <button onclick="mergeAllImages()" class="w-full sm:w-auto bg-emerald-500 hover:bg-emerald-600 text-white px-8 py-3.5 rounded-xl font-bold transition shadow-lg shadow-emerald-100">
-                        Generate Merge
+                    <button onclick="mergeAllImages()" class="bg-emerald-500 hover:bg-emerald-600 text-white px-4 md:px-8 py-3.5 rounded-xl font-bold transition shadow-lg shadow-emerald-100 text-sm">
+                        Generate
                     </button>
                 </div>
             </div>
@@ -105,47 +115,47 @@
     <div class="max-w-6xl mx-auto px-6 py-20">
         <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div>
-                <div class="text-4xl font-black text-slate-900">0.1s</div>
-                <div class="text-sm font-bold text-indigo-500 uppercase tracking-widest mt-2">Avg. Speed</div>
+                <div class="text-3xl md:text-4xl font-black text-slate-900">0.1s</div>
+                <div class="text-[10px] md:text-sm font-bold text-indigo-500 uppercase tracking-widest mt-2">Avg. Speed</div>
             </div>
             <div>
-                <div class="text-4xl font-black text-slate-900">100%</div>
-                <div class="text-sm font-bold text-indigo-500 uppercase tracking-widest mt-2">Private</div>
+                <div class="text-3xl md:text-4xl font-black text-slate-900">100%</div>
+                <div class="text-[10px] md:text-sm font-bold text-indigo-500 uppercase tracking-widest mt-2">Private</div>
             </div>
             <div>
-                <div class="text-4xl font-black text-slate-900">∞</div>
-                <div class="text-sm font-bold text-indigo-500 uppercase tracking-widest mt-2">Batch Limit</div>
+                <div class="text-3xl md:text-4xl font-black text-slate-900">∞</div>
+                <div class="text-[10px] md:text-sm font-bold text-indigo-500 uppercase tracking-widest mt-2">Limit</div>
             </div>
             <div>
-                <div class="text-4xl font-black text-slate-900">4K+</div>
-                <div class="text-sm font-bold text-indigo-500 uppercase tracking-widest mt-2">Resolution</div>
+                <div class="text-3xl md:text-4xl font-black text-slate-900">4K+</div>
+                <div class="text-[10px] md:text-sm font-bold text-indigo-500 uppercase tracking-widest mt-2">Res</div>
             </div>
         </div>
     </div>
 
     <section id="how-it-works" class="py-24 bg-white">
         <div class="max-w-6xl mx-auto px-6 text-center">
-            <h2 class="text-4xl font-black mb-16">Your Images, Stitched in Four Simple Steps</h2>
+            <h2 class="text-3xl md:text-4xl font-black mb-16 uppercase tracking-tight">Four Simple Steps</h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
-                <div class="p-8 rounded-2xl bg-slate-50 border border-slate-100 shadow-sm transition-transform hover:scale-105">
+                <div class="p-8 rounded-2xl bg-slate-50 border border-slate-100 shadow-sm transition-transform hover:scale-105 text-center">
                     <div class="text-5xl text-indigo-200 font-extrabold mb-4">1</div>
-                    <h3 class="text-xl font-bold mb-3">Upload Your Photos</h3>
-                    <p class="text-slate-500 text-sm">Select JPG, PNG, or WebP files. No limits on quantity or size.</p>
+                    <h3 class="text-xl font-bold mb-3">Upload Photos</h3>
+                    <p class="text-slate-500 text-sm">Select JPG, PNG, or WebP files. There are no limits on quantity or file size.</p>
                 </div>
-                <div class="p-8 rounded-2xl bg-slate-50 border border-slate-100 shadow-sm transition-transform hover:scale-105">
+                <div class="p-8 rounded-2xl bg-slate-50 border border-slate-100 shadow-sm transition-transform hover:scale-105 text-center">
                     <div class="text-5xl text-indigo-200 font-extrabold mb-4">2</div>
-                    <h3 class="text-xl font-bold mb-3">Choose Your Layout</h3>
-                    <p class="text-slate-500 text-sm">Decide between horizontal side-by-side or vertical stacking.</p>
+                    <h3 class="text-xl font-bold mb-3">Choose Layout</h3>
+                    <p class="text-slate-500 text-sm">Select either a horizontal side-by-side or a vertical stacking layout.</p>
                 </div>
-                <div class="p-8 rounded-2xl bg-slate-50 border border-slate-100 shadow-sm transition-transform hover:scale-105">
+                <div class="p-8 rounded-2xl bg-slate-50 border border-slate-100 shadow-sm transition-transform hover:scale-105 text-center">
                     <div class="text-5xl text-indigo-200 font-extrabold mb-4">3</div>
                     <h3 class="text-xl font-bold mb-3">Instant Merge</h3>
-                    <p class="text-slate-500 text-sm">Click 'Generate Merge' and watch the magic happen in milliseconds.</p>
+                    <p class="text-slate-500 text-sm">Click 'Generate Merge' and watch the process complete in milliseconds.</p>
                 </div>
-                <div class="p-8 rounded-2xl bg-slate-50 border border-slate-100 shadow-sm transition-transform hover:scale-105">
+                <div class="p-8 rounded-2xl bg-slate-50 border border-slate-100 shadow-sm transition-transform hover:scale-105 text-center">
                     <div class="text-5xl text-indigo-200 font-extrabold mb-4">4</div>
                     <h3 class="text-xl font-bold mb-3">Download & Share</h3>
-                    <p class="text-slate-500 text-sm">Get your high-resolution merged image instantly, ready for use.</p>
+                    <p class="text-slate-500 text-sm">Receive your high-resolution merged image instantly, ready for use.</p>
                 </div>
             </div>
         </div>
@@ -153,27 +163,27 @@
 
     <section id="features" class="py-24">
         <div class="max-w-6xl mx-auto px-6 text-center">
-            <h2 class="text-4xl font-black mb-16">More Power in Your Browser</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+            <h2 class="text-3xl md:text-4xl font-black mb-16 uppercase tracking-tight">Browser Power</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
                 <div class="feature-card p-6 rounded-2xl bg-white border border-slate-100 shadow-md">
                     <div class="w-20 h-20 bg-indigo-50 text-indigo-600 rounded-full flex items-center justify-center mx-auto mb-6 text-3xl feature-icon">
                         <i class="fas fa-magic"></i>
                     </div>
                     <h3 class="text-xl font-bold mb-3">Auto-Align & Scale</h3>
-                    <p class="text-slate-500 leading-relaxed">Our intelligent algorithm ensures all images perfectly align, regardless of original size or aspect ratio.</p>
+                    <p class="text-slate-500 leading-relaxed">Our intelligent algorithm ensures all images align perfectly, regardless of original size or aspect ratio.</p>
                 </div>
                 <div class="feature-card p-6 rounded-2xl bg-white border border-slate-100 shadow-md">
                     <div class="w-20 h-20 bg-purple-50 text-purple-600 rounded-full flex items-center justify-center mx-auto mb-6 text-3xl feature-icon">
                         <i class="fas fa-lock"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-3">Uncompromised Privacy</h3>
+                    <h3 class="text-xl font-bold mb-3">Total Privacy</h3>
                     <p class="text-slate-500 leading-relaxed">Client-side processing means your data never leaves your device. We guarantee your photos are always secure.</p>
                 </div>
                 <div class="feature-card p-6 rounded-2xl bg-white border border-slate-100 shadow-md">
                     <div class="w-20 h-20 bg-emerald-50 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-6 text-3xl feature-icon">
                         <i class="fas fa-infinity"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-3">Limitless Creations</h3>
+                    <h3 class="text-xl font-bold mb-3">Limitless Creation</h3>
                     <p class="text-slate-500 leading-relaxed">Merge as many images as you need, from two to twenty or more. Your creativity has no bounds.</p>
                 </div>
             </div>
@@ -182,23 +192,23 @@
 
     <section id="testimonials" class="py-24 bg-indigo-600 text-white">
         <div class="max-w-6xl mx-auto px-6 text-center">
-            <h2 class="text-4xl font-black mb-16">What Our Users Say</h2>
+            <h2 class="text-3xl md:text-4xl font-black mb-16 uppercase tracking-tight">User Trust</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-                <div class="bg-indigo-700 p-8 rounded-2xl shadow-xl text-left">
+                <div class="bg-indigo-700 p-8 rounded-2xl shadow-xl text-left border border-indigo-500">
                     <i class="fas fa-quote-left text-indigo-400 text-3xl mb-4"></i>
-                    <p class="mb-6 leading-relaxed text-indigo-100">"ImageCraft saved me so much time. The quality is perfect and it's so easy to use on the go!"</p>
+                    <p class="mb-6 leading-relaxed text-indigo-100 italic">"ImageCraft saved me so much time. The quality is perfect and it is so easy to use on the go!"</p>
                     <div class="font-bold text-white">- Priya S.</div>
                     <div class="text-indigo-200 text-sm">Graphic Designer</div>
                 </div>
-                <div class="bg-indigo-700 p-8 rounded-2xl shadow-xl text-left">
+                <div class="bg-indigo-700 p-8 rounded-2xl shadow-xl text-left border border-indigo-500">
                     <i class="fas fa-quote-left text-indigo-400 text-3xl mb-4"></i>
-                    <p class="mb-6 leading-relaxed text-indigo-100">"Finally, a tool that respects my privacy. No uploads, just pure performance. Highly recommended!"</p>
+                    <p class="mb-6 leading-relaxed text-indigo-100 italic">"Finally, a tool that respects my privacy. No uploads, just pure performance. Highly recommended!"</p>
                     <div class="font-bold text-white">- Rohit K.</div>
                     <div class="text-indigo-200 text-sm">Web Developer</div>
                 </div>
-                <div class="bg-indigo-700 p-8 rounded-2xl shadow-xl text-left">
+                <div class="bg-indigo-700 p-8 rounded-2xl shadow-xl text-left border border-indigo-500">
                     <i class="fas fa-quote-left text-indigo-400 text-3xl mb-4"></i>
-                    <p class="mb-6 leading-relaxed text-indigo-100">"I use it daily for my e-commerce listings. The auto-scaling feature is a lifesaver. Absolutely brilliant!"</p>
+                    <p class="mb-6 leading-relaxed text-indigo-100 italic">"I use it daily for my e-commerce listings. The auto-scaling feature is a lifesaver. Absolutely brilliant!"</p>
                     <div class="font-bold text-white">- Aisha M.</div>
                     <div class="text-indigo-200 text-sm">Online Seller</div>
                 </div>
@@ -206,9 +216,31 @@
         </div>
     </section>
 
-    <section id="comparison" class="py-24 bg-slate-900 text-white">
+    <section id="about" class="py-24 bg-white">
         <div class="max-w-5xl mx-auto px-6 text-center">
-            <h2 class="text-4xl font-black mb-16">Why pros choose ImageCraft?</h2>
+            <h2 class="text-3xl md:text-4xl font-black mb-8 uppercase tracking-tight">Our Mission</h2>
+            <p class="text-xl text-slate-500 leading-relaxed mb-12 px-2">
+                We believe in empowering creators with simple, powerful, and private tools. ImageCraft was built to solve the common frustrations of online image editing, offering a seamless experience without compromise.
+            </p>
+            <a href="#tool" class="bg-indigo-600 hover:bg-indigo-700 text-white px-10 py-4 rounded-full font-bold text-lg shadow-lg transition-all">Start Creating Today</a>
+        </div>
+    </section>
+
+    <section class="py-20 bg-gradient-to-r from-indigo-700 to-purple-700 text-white text-center">
+        <div class="max-w-4xl mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-black mb-8 uppercase tracking-tight">Ready to Craft?</h2>
+            <p class="text-lg md:text-xl leading-relaxed mb-10 opacity-90 px-2">
+                Experience the power of effortless image merging. Start creating stunning visuals in seconds.
+            </p>
+            <a href="#tool" class="bg-white text-indigo-700 px-12 py-5 rounded-full font-bold text-lg md:text-xl shadow-2xl hover:scale-105 transition-transform inline-block uppercase">
+                Start Now <i class="fas fa-arrow-right ml-3"></i>
+            </a>
+        </div>
+    </section>
+
+    <section id="comparison" class="py-24 bg-slate-900 text-white overflow-hidden">
+        <div class="max-w-5xl mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-black mb-16 text-center uppercase tracking-tight">Why Choose Us</h2>
             <div class="overflow-x-auto">
                 <table class="w-full text-left border-collapse min-w-[600px]">
                     <thead>
@@ -220,17 +252,17 @@
                     </thead>
                     <tbody class="text-lg">
                         <tr class="border-b border-slate-800">
-                            <td class="py-6">Server Upload Required</td>
-                            <td class="py-6 text-emerald-400 font-bold">Never (Browser-only)</td>
+                            <td class="py-6">Server Upload</td>
+                            <td class="py-6 text-emerald-400 font-bold">Never</td>
                             <td class="py-6 text-slate-500">Always</td>
                         </tr>
                         <tr class="border-b border-slate-800">
                             <td class="py-6">Quality Loss</td>
-                            <td class="py-6 text-emerald-400 font-bold">Zero (lossless)</td>
+                            <td class="py-6 text-emerald-400 font-bold">Zero (Lossless)</td>
                             <td class="py-6 text-slate-500">Compressed</td>
                         </tr>
                         <tr>
-                            <td class="py-6">Annoying Watermarks</td>
+                            <td class="py-6">Watermarks</td>
                             <td class="py-6 text-emerald-400 font-bold">No</td>
                             <td class="py-6 text-slate-500">Yes</td>
                         </tr>
@@ -242,50 +274,54 @@
 
     <section id="faq" class="py-24 bg-white">
         <div class="max-w-5xl mx-auto px-6">
-            <h2 class="text-4xl font-black text-center mb-16">Frequently Asked Questions</h2>
+            <h2 class="text-3xl md:text-4xl font-black text-center mb-16 uppercase tracking-tight">Help Center</h2>
             <div class="space-y-6">
                 <div class="bg-slate-50 p-6 rounded-xl border border-slate-100 shadow-sm">
                     <h3 class="font-bold text-xl mb-2">How does ImageCraft ensure my privacy?</h3>
-                    <p class="text-slate-600 leading-relaxed">All image processing happens directly in your web browser. Your images are never uploaded to our servers, ensuring complete privacy and security of your data.</p>
+                    <p class="text-slate-600 leading-relaxed text-sm">All image processing happens directly in your web browser. Your images are never uploaded to our servers, ensuring complete privacy.</p>
                 </div>
                 <div class="bg-slate-50 p-6 rounded-xl border border-slate-100 shadow-sm">
-                    <h3 class="font-bold text-xl mb-2">Is there a limit to the number of images I can merge?</h3>
-                    <p class="text-slate-600 leading-relaxed">There is no hard limit. You can merge 2, 5, or even 20+ images depending on your browser's memory.</p>
+                    <h3 class="font-bold text-xl mb-2">Is there a limit to the number of images?</h3>
+                    <p class="text-slate-600 leading-relaxed text-sm">No hard limit! Merge as many images as your browser's memory can handle.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer class="py-16 bg-slate-900 text-white">
-        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8 text-center md:text-left">
-            <div>
-                <span class="text-2xl font-black uppercase tracking-tighter">IMAGE<span class="text-indigo-600">CRAFT</span></span>
-                <p class="mt-4 text-slate-400 text-sm max-w-sm leading-relaxed mx-auto md:mx-0">ImageCraft is a professional-grade image processing suite that runs entirely on your local hardware. We believe in tools that are fast, private, and powerful.</p>
+    <footer class="py-16 bg-slate-900 text-white border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
+            <div class="text-center md:text-left">
+                <span class="text-2xl font-black uppercase tracking-tighter">Image<span class="text-indigo-600">Craft</span></span>
+                <p class="mt-4 text-slate-400 text-sm max-w-sm leading-relaxed">ImageCraft is a professional-grade image processing suite that runs entirely on your local hardware.</p>
                 <div class="flex gap-4 justify-center md:justify-start mt-6 text-slate-400 text-xl">
                     <a href="#" class="hover:text-indigo-400 transition"><i class="fab fa-twitter"></i></a>
                     <a href="#" class="hover:text-indigo-400 transition"><i class="fab fa-facebook-f"></i></a>
                     <a href="#" class="hover:text-indigo-400 transition"><i class="fab fa-linkedin-in"></i></a>
                 </div>
             </div>
-            <div class="grid grid-cols-2 gap-8 w-full md:w-auto">
+            <div class="grid grid-cols-2 gap-8 text-center md:text-left">
                 <div>
-                    <h5 class="font-black text-xs uppercase tracking-widest text-slate-400 mb-6">Tools</h5>
+                    <h5 class="font-black text-xs uppercase tracking-widest text-slate-400 mb-6 font-bold uppercase">Tools</h5>
                     <ul class="space-y-3 font-bold text-slate-300 text-sm">
                         <li><a href="#tool" class="hover:text-indigo-400 transition">Image Stitcher</a></li>
                         <li><a href="#" class="hover:text-indigo-400 transition">Image Resizer</a></li>
+                        <li><a href="https://webimgtool.novaplexes.com" class="hover:text-indigo-400 transition">Image Converter</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h5 class="font-black text-xs uppercase tracking-widest text-slate-400 mb-6">Company</h5>
+                    <h5 class="font-black text-xs uppercase tracking-widest text-slate-400 mb-6 font-bold uppercase">Policy</h5>
                     <ul class="space-y-3 font-bold text-slate-300 text-sm">
-                        <li><a href="about-us.html" class="hover:text-indigo-400 transition">About Us</a></li>
-                        <li><a href="privacy-policy.html" class="hover:text-indigo-400 transition">Privacy Policy</a></li>
+                        <li><a href="privacy policy.html" class="hover:text-indigo-400 transition">Privacy Policy</a></li>
+                        <li><a href="terms of service.html" class="hover:text-indigo-400 transition">Terms of Service</a></li>
+                        <li><a href="cookie policy.html" class="hover:text-indigo-400 transition">Cookie Policy</a></li>
+                        <li><a href="disclaimer.html" class="hover:text-indigo-400 transition">Disclaimer</a></li>
                     </ul>
                 </div>
             </div>
         </div>
-        <div class="mt-12 text-center text-slate-500 text-xs border-t border-slate-800 pt-8">
-            &copy; 2026 ImageCraft Pro. All rights reserved. Made for Creators.
+        <div class="mt-12 text-center text-slate-500 text-xs border-t border-slate-800 pt-8 px-4">
+            &copy; 2026 ImageCraft Pro. All rights reserved. Made for Creators. <br>
+            Designed & Developed by Dheerendra Patel
         </div>
     </footer>
 
@@ -293,48 +329,97 @@
         let imageList = [];
         let dropArea = document.getElementById('placeholder');
 
-        function preventDefaults (e) { e.preventDefault(); e.stopPropagation(); }
+        function preventDefaults (e) {
+            e.preventDefault();
+            e.stopPropagation();
+        }
+
         ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
             dropArea.addEventListener(eventName, preventDefaults, false);
             document.body.addEventListener(eventName, preventDefaults, false);
         });
 
+        ['dragenter', 'dragover'].forEach(eventName => {
+            dropArea.addEventListener(eventName, highlight, false);
+        });
+
+        ['dragleave', 'drop'].forEach(eventName => {
+            dropArea.addEventListener(eventName, unhighlight, false);
+        });
+
+        function highlight(e) { dropArea.classList.add('bg-indigo-50', 'border-indigo-300'); }
+        function unhighlight(e) { dropArea.classList.remove('bg-indigo-50', 'border-indigo-300'); }
+
+        dropArea.addEventListener('drop', handleDrop, false);
+
+        function handleDrop(e) {
+            let dt = e.dataTransfer;
+            let files = dt.files;
+            handleFiles(files);
+        }
+
         function handleFiles(files) {
             document.getElementById('placeholder').style.display = 'none';
             Array.from(files).forEach(file => {
-                const reader = new FileReader();
-                reader.onload = (e) => {
-                    imageList.push({ id: Date.now() + Math.random(), src: e.target.result });
-                    renderGrid();
-                };
-                reader.readAsDataURL(file);
+                if (file.type.startsWith('image/')) {
+                    const reader = new FileReader();
+                    reader.onload = (e) => {
+                        imageList.push({ id: Date.now() + Math.random(), src: e.target.result });
+                        renderGrid();
+                    };
+                    reader.readAsDataURL(file);
+                }
             });
         }
 
         function renderGrid() {
             const grid = document.getElementById('imageGrid');
             grid.innerHTML = '';
-            if (imageList.length === 0) { document.getElementById('placeholder').style.display = 'block'; }
-            imageList.forEach((img) => {
+            if (imageList.length === 0) {
+                document.getElementById('placeholder').style.display = 'block';
+                grid.classList.add('hidden');
+            } else {
+                document.getElementById('placeholder').style.display = 'none';
+                grid.classList.remove('hidden');
+            }
+
+            imageList.forEach((img, idx) => {
                 const div = document.createElement('div');
-                div.className = "relative rounded-xl overflow-hidden border-2 border-white aspect-square";
-                div.innerHTML = `<img src="${img.src}" class="h-full w-full object-cover"><button onclick="removeImage(${img.id})" class="absolute top-2 right-2 bg-red-500 text-white p-1 rounded-full">✕</button>`;
+                div.className = "relative group rounded-2xl overflow-hidden shadow-sm border-2 border-white aspect-square bg-slate-100";
+                div.innerHTML = `
+                    <img src="${img.src}" class="h-full w-full object-cover">
+                    <div class="absolute inset-0 bg-indigo-600/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                        <span class="text-white text-lg font-bold">${idx + 1}</span>
+                    </div>
+                    <button onclick="removeImage(${img.id})" class="absolute top-2 right-2 bg-white/90 text-red-500 w-8 h-8 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-all transform hover:scale-110 flex items-center justify-center">✕</button>
+                    <div class="absolute bottom-2 left-2 bg-black/40 text-white text-[10px] px-2 py-0.5 rounded backdrop-blur-md">IMG_${idx+1}</div>
+                `;
                 grid.appendChild(div);
             });
         }
 
-        function removeImage(id) { imageList = imageList.filter(i => i.id !== id); renderGrid(); }
-        function clearAll() { imageList = []; renderGrid(); document.getElementById('resultArea').classList.add('hidden'); }
+        function removeImage(id) { 
+            imageList = imageList.filter(i => i.id !== id); 
+            renderGrid(); 
+            if (imageList.length === 0) {
+                document.getElementById('resultArea').classList.add('hidden');
+            }
+        }
+
+        function clearAll() {
+            imageList = [];
+            renderGrid();
+            document.getElementById('resultArea').classList.add('hidden');
+        }
 
         async function mergeAllImages() {
-            if (imageList.length < 2) return alert("Select at least 2 images!");
+            if (imageList.length < 2) return alert("Please select at least 2 images!");
             const canvas = document.getElementById('canvas-preview');
             const ctx = canvas.getContext('2d');
             const direction = document.getElementById('mergeDirection').value;
             const loadedImages = await Promise.all(imageList.map(imgData => {
                 return new Promise((r) => { const i = new Image(); i.src = imgData.src; i.onload = () => r(i); });
             }));
-            
             if(direction === 'horizontal') {
                 const h = Math.max(...loadedImages.map(i => i.height));
                 let tw = 0; loadedImages.forEach(i => tw += i.width * (h/i.height));
@@ -347,9 +432,11 @@
                 let y = 0; loadedImages.forEach(i => { const sh = i.height * (w/i.width); ctx.drawImage(i, 0, y, w, sh); y += sh; });
             }
             document.getElementById('resultArea').classList.remove('hidden');
-            document.getElementById('downloadBtn').href = canvas.toDataURL("image/png");
-            document.getElementById('downloadBtn').download = "imagecraft-merged.png";
+            document.getElementById('downloadBtn').href = canvas.toDataURL("image/png", 1.0);
+            document.getElementById('downloadBtn').download = "imagecraft-pro-merged.png";
+            window.scrollTo({ top: document.getElementById('resultArea').offsetTop - 50, behavior: 'smooth' });
         }
+        renderGrid();
     </script>
 </body>
 </html>
